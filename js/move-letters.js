@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     handleNextClick(event, clickedCard) {
       event.stopPropagation();
 
-      if (clickedCard.classList.contains("card-2")) {
+      if (clickedCard.classList.contains('card-2')) {
         const dateInput = clickedCard.querySelector('.input');
         if (!dateInput || !dateInput.value) {
-          alert("Пожалуйста, выберите дату)");
+          alert('Пожалуйста, выбери дату, а потом нажми на кнопку');
           return;
         }
       }
