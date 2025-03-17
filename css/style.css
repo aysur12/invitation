@@ -252,6 +252,10 @@ button.submit:hover {
   align-items: center;
 }
 
+.info-gap {
+  gap: 28px;
+}
+
 .header {
   font: 700 50px/1.5 'MADEGoodTimeScript', Arial, sans-serif;
   text-align: center;
