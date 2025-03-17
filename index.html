@@ -7,19 +7,52 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <button class="button run" id="runaway-btn">Нет</button>
+    <div class="warning">
+      <p class="warning-text">
+        Упс!
+      </p>
+      <p class="warning-text">
+        Лучше открыть на ноутбуке или планшете 😜
+      </p>
+      <p class="warning-text">
+        P.S. Но лучше всего на ноутбуке
+      </p>
+    </div>
+    <button class="button run no" id="runaway-btn">Нет</button>
     <canvas id="sakura"></canvas>
     <div class="container">
       <div class="frame">
         <div id="button_open_envelope" style="text-align: center">Открой 😉</div>
-        <div class="message" style="text-align: center">
-          <div class="wrapper">
+        <div class="message cards" style="text-align: center">
+
+          <div class="wrapper wrapper-3 card card-2 ">
+            <div class="info">
+              <h1 class="header">Супер!</h1>
+              <p class="text">А теперь выбери дату нашей встречи 🗓️</p>
+            </div>
+            <form class="form" action="#">
+              <input required type="datetime-local" name="date" id="date" class="input" />
+              <div class="buttons flex-buttons">
+                <button type="submit" class="button submit next-btn">Отправить дату</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="wrapper wrapper-2 card ">
+            <div class="info">
+              <h1 class="header">Спасибо!☺️</h1>
+              <p class="text">Я получил отправленные тобой данные </p>
+              <p class="text">И с нетерпением буду ждать встречи! 😉</p>
+            </div>
+          </div>
+
+          <div class="wrapper card card--current">
             <div class="info">
               <h1 class="header">Сынару,</h1>
               <p class="text">Ты пойдешь со мной на свидание?☺️</p>
             </div>
             <div class="buttons">
-              <button class="button yes">Да</button>
+              <button class="button yes next-btn">Да</button>
             </div>
           </div>
         </div>
@@ -34,6 +67,7 @@
     <script src="./js/letter.js"></script>
     <script src="./js/anime.min.js"></script>
     <script src="./js/run.js"></script>
+    <script src="./js/move-letters.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="./js/confetti.js"></script>
     <script id="sakura_point_vsh" type="x-shader/x_vertex">

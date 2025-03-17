@@ -14,27 +14,42 @@ body {
 
 @font-face {
   font-weight: normal;
-  font-family: "MADEGoodTimeScript";
+  font-family: 'MADEGoodTimeScript';
   font-style: normal;
   font-display: swap;
 
-  src: local('MADEGoodTimeScript'), local('MADEGoodTimeScript'),
-    url('./fonts/MADEGoodTimeScript.woff2') format('woff2'),
-    url('./fonts/MADEGoodTimeScript.woff') format('woff'),
-    url('./fonts/MADEGoodTimeScript.ttf') format('truetype'),
+  src: local('MADEGoodTimeScript'), local('MADEGoodTimeScript'), url('./fonts/MADEGoodTimeScript.woff2') format('woff2'),
+    url('./fonts/MADEGoodTimeScript.woff') format('woff'), url('./fonts/MADEGoodTimeScript.ttf') format('truetype');
 }
-
 
 @font-face {
   font-weight: normal;
-  font-family: "Airfool";
+  font-family: 'Airfool';
   font-style: normal;
   font-display: swap;
 
-  src: local('Airfool'), local('Airfool'),
-    url('./fonts/Airfool.woff2') format('woff2'),
-    url('./fonts/Airfoolt.woff') format('woff'),
-    url('./fonts/Airfool.ttf') format('truetype'),
+  src: local('Airfool'), local('Airfool'), url('./fonts/Airfool.woff2') format('woff2'),
+    url('./fonts/Airfoolt.woff') format('woff'), url('./fonts/Airfool.ttf') format('truetype');
+}
+
+.warning {
+  position: relative;
+  z-index: 1000;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+  background-color: #d27c7c;
+}
+
+.warning-text {
+  font: 400 30px/1.5 'Airfool', Arial, sans-serif;
+  color: #fff;
+  text-align: center;
 }
 
 canvas {
@@ -53,12 +68,16 @@ div.container {
 }
 
 .wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
-  width: 100%;
+  width: 98%;
   height: 100%;
   min-height: 300px;
   padding: 45px;
@@ -69,11 +88,93 @@ div.container {
   line-height: 1.2rem;
 }
 
+.wrapper-2 {
+  z-index: 2;
+  padding: 20px 20px 20px 30px;
+}
+
+.card {
+  transform: translateY(0) translate(10px, -10px) scale(1);
+  transform-origin: 0 0;
+  transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s, background 0.4s linear;
+}
+
+.wrapper-3 {
+  z-index: 1;
+  padding: 10px 45px;
+  gap: 0;
+  transform: translateY(0) translate(20px, -20px) scale(1);
+}
+
+.card--next {
+  z-index: 5;
+  transform: translate(10px, -10px) scale(1);
+}
+
+.card--out {
+  animation: card-out 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8);
+  transform: translate(20px, -20px) scale(1);
+  z-index: 1;
+}
+
+.card--current {
+  cursor: auto;
+  user-select: auto;
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
+
+@keyframes card-out {
+  0% {
+    z-index: 20;
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-120%) translateX(-40px);
+  }
+  80% {
+    z-index: 1;
+  }
+  100% {
+    transform: translate(20px, -20px) scale(1);
+  }
+}
+
 .buttons {
   display: flex;
   gap: 40px;
   width: 270px;
   height: 48px;
+}
+
+.flex-buttons {
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.input {
+  background-color: #6f3a6d;
+  padding: 15px;
+  font-family: 'Roboto Mono', monospace;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 .button {
@@ -92,11 +193,19 @@ div.container {
   height: 40px;
   color: #05958d;
   background-color: #4efff4;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), inset -7px -7px 10px 0px rgba(0, 0, 0, .1), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
-  text-shadow: 2px 2px 3px rgba(255, 255, 255, .5), -4px -4px 6px rgba(116, 125, 136, .2);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), inset -7px -7px 10px 0px rgba(0, 0, 0, 0.1),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5), -4px -4px 6px rgba(116, 125, 136, 0.2);
   outline: none;
-  font: 400 21px/1.5 "Airfool", Arial, sans-serif;
+  font: 400 21px/1.5 'Airfool', Arial, sans-serif;
 }
+
+.submit {
+  width: 250px;
+  color: #7d4a78;
+  background-color: #d17780;
+}
+
 .yes.show {
   z-index: -1;
   opacity: 0;
@@ -131,6 +240,12 @@ button.yes:hover {
   outline: none;
 }
 
+button.submit:hover {
+  color: white;
+  background: #4efff4;
+  outline: none;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -138,13 +253,17 @@ button.yes:hover {
 }
 
 .header {
-  font: 700 50px/1.5 "MADEGoodTimeScript", Arial, sans-serif;
+  font: 700 50px/1.5 'MADEGoodTimeScript', Arial, sans-serif;
   text-align: center;
 }
 
 .text {
-  font: 400 30px/1.5 "MADEGoodTimeScript", Arial, sans-serif;
+  font: 400 30px/1.5 'MADEGoodTimeScript', Arial, sans-serif;
   text-align: center;
+}
+
+.no.hidden {
+  display: none;
 }
 
 .frame {
@@ -155,6 +274,7 @@ button.yes:hover {
   background: #774358;
   border-radius: 0 0 40px 40px;
 }
+
 #button_open_envelope {
   width: 180px;
   position: absolute;
@@ -167,7 +287,7 @@ button.yes:hover {
   color: #fff;
   border: 2px solid #fff;
   transition: all 0.3s ease-in-out;
-  font: 400 26px / normal "Airfool", Arial, sans-serif;
+  font: 400 26px / normal 'Airfool', Arial, sans-serif;
 }
 #button_open_envelope:hover {
   background: #fff;
@@ -176,17 +296,19 @@ button.yes:hover {
 }
 .message {
   position: relative;
+  right: 4px;
   width: 580px;
   min-height: 300px;
   height: auto;
-  background: #fff;
+  background: transparent;
   margin: 0 auto;
   top: 30px;
-  box-shadow: 0 0 5px 2px #333;
+  box-shadow: none;
   transition: 2s ease-in-out;
   transition-delay: 1.5s;
   z-index: 300;
 }
+
 .left,
 .right,
 .top {
@@ -287,5 +409,18 @@ button.yes:hover {
     transform: translatey(0px);
     z-index: 350;
     transition: 1s ease-in-out;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .warning {
+    display: flex;
+  }
+  .frame {
+    display: none;
+  }
+
+  canvas {
+    display: none;
   }
 }
