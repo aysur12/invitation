@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   butt.addEventListener("mousemove", doIt);
   butt.addEventListener('click', doItHard);
 
+  const submitBtn = document.querySelector('.submit');
+  submitBtn.addEventListener('click', doItHard);
+
   function r(mi, ma) {
     return parseInt(Math.random() * (ma - mi) + mi);
   }

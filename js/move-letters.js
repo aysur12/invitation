@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (clickedCard.classList.contains('card-2')) {
         const dateInput = clickedCard.querySelector('.input');
         if (!dateInput || !dateInput.value) {
-          alert('Пожалуйста, выбери дату, нажав на значок календаря)');
+          alert('Пожалуйста, выбери дату, нажав на значок календаря, а затем нажми кнопку "Отправить дату")');
           return;
         }
       }
